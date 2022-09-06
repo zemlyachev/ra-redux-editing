@@ -2,6 +2,7 @@ import {
   CANCEL_SERVICE,
   CHANGE_SERVICE_FIELD,
   EDIT_SERVICE,
+  REMOVE_SERVICE,
 } from "../actions/actionTypes";
 
 const initialState = {
@@ -20,6 +21,9 @@ export default function serviceAddReducer(state = initialState, action) {
       return { ...state, ...item };
     case CANCEL_SERVICE:
       return initialState;
+    case REMOVE_SERVICE:
+      const { id } = action.payload;
+      return id === state.id ? { ...state, id: null } : state;
     default:
       return state;
   }
