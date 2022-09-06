@@ -1,9 +1,10 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { editService, removeService } from "../actions/actionCreators";
+import { selectListByFilter } from "../selectors/selectListByFilter";
 
 function ServiceList() {
-  const items = useSelector((state) => state.serviceList);
+  const items = useSelector(selectListByFilter);
   const dispatch = useDispatch();
 
   const handleRemove = (id) => {
