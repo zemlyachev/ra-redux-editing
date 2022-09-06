@@ -30,7 +30,7 @@ function ServiceAdd() {
       <input name="name" onChange={handleChange} value={item.name} />
       <input name="price" onChange={handleChange} value={item.price} />
       <button type="submit">Save</button>
-      <button type="reset">Cancel</button>
+      {item.id && <button type="reset">Cancel</button>}
     </form>
   );
 }
