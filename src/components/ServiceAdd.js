@@ -9,6 +9,7 @@ import {
 function ServiceAdd() {
   const item = useSelector((state) => state.serviceAdd);
   const dispatch = useDispatch();
+  const isEdit = !!item.id;
 
   const handleChange = (evt) => {
     const { name, value } = evt.target;
@@ -30,7 +31,7 @@ function ServiceAdd() {
       <input name="name" onChange={handleChange} value={item.name} />
       <input name="price" onChange={handleChange} value={item.price} />
       <button type="submit">Save</button>
-      <button type="reset">Cancel</button>
+      {isEdit && <button type="reset">Cancel</button>}
     </form>
   );
 }
